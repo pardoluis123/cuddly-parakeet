@@ -14,5 +14,3 @@ copy .env.example .env # Windows Command Prompt
 ```
 
 This command creates a copy of `.env.example` and names it `.env`, allowing you to configure your environment variables specific to your setup.
-
-# Project Organization 
