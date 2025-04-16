@@ -1,3 +1,6 @@
+
+####This file is an old Python script that I used to test the Streamlit UI. The Streamlit UI successfully read this file, suggested improvements, and output a file with those suggestions. 
+
 #Puji Masireddy
 #COMP112-02
 #Hangman Project Final
