@@ -1,5 +1,14 @@
 # qac-387-assignment-3
 
+# Updates as of 05-03-2025 Part 2
+
+Github is being weird about uploading a mov so here is a google drive link for Prof Rose incase you grade this weekend and are curious to see thanks!
+
+https://drive.google.com/file/d/1asQZanGZlJXg7mqP5pPiY31lMijTCnDu/view?usp=sharing
+
+Other then theese updates I will update the enviornment tommorow, and clean up the ridiculously slow speed of the suggestions. Mostly this is an artifact of pandas is my assumption, as streamlit can only handle so much anyways numpy's contigous memory is probably useful for edge cases like this app. OK! all updates finished
+
+
 
 # Updates as of 05-03-2025
 
