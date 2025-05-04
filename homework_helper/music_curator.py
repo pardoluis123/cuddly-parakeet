@@ -252,9 +252,6 @@ if __name__=="__main__":
 
     from time import time
     print("running the file by itself")
-
-    
-    os._exit(0)
     #pre_processed_data = pd.read_csv('Cluster_assigned_music_df.csv')
     #lets say we dont have pre-processed data the general process would look like:
     start=time()
@@ -272,6 +269,7 @@ if __name__=="__main__":
     test_dataframe.to_csv('/Users/luisperez/Desktop/AI_Tools/assgn3/Cluster_assigned_music_df.csv')
     print(test_dataframe.columns)
 
+    os._exit(0)
 
 
 
