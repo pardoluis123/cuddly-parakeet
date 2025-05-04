@@ -5,7 +5,7 @@
 This project builds an AI powered "Homework Station App" using LangChain, OpenAI, and Streamlit. The tool includes a couple different small "homework" station tools. The user can use curated LLM's to either improve their code or run data analysis tasks. A nifty side component
 is the ability to get spotify music suggestions
 
-# Running the app
+# Running The App
 In order to run our app you currently need to run using streamlits method as we have not yet pushed it onto streamlits open-hosting platform.
 
 ```bash
