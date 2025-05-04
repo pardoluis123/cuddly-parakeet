@@ -7,7 +7,7 @@ import os
 from matplotlib import cm
 from dotenv import load_dotenv
 
-def load_openai_API(envpath='../resources/envfile.env'):
+def load_openai_API(envpath='/Users/luisperez/Desktop/AI_Tools/envfile.env'):
     ''' loads openai api and returns 
     Parameters
     ----------

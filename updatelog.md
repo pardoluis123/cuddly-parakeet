@@ -1,5 +1,13 @@
 # Update log keeping track of major changes in order of most recent -> least recent, top -> bottom
 
+## Updates as of 05-04-2025 Part 1
+    -Implemented a RAG pipeline particularly for improving code.
+    -Music Curation has been marginally imrpoved + song suggestions cap at groups of thirty now
+    -UI has been improved a ton, aesthetics inclusions, CSS modification
+    -also compressed the dataframe for music and just barely fits everything inside the 100mb limit for github
+    -a few more adjustments needed in terms of loading in compressed file and filtering but should be all good otherwise
+     
+
 ## Updates as of 05-03-2025 Part 2
  
  Github is being weird about uploading a mov so here is a google drive link for Prof Rose incase you grade this weekend and are curious to see thanks!
