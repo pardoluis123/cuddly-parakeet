@@ -2,6 +2,7 @@ import streamlit as st
 from code_improver import run_code_improver
 from music_curator import run_music_picker
 from thematic import set_theme
+from utilities import load_home_button
 
 #defining the theme at the top, im sure we can make theese customizable by the user but for now its up to us 
 set_theme(
@@ -69,6 +70,7 @@ elif st.session_state.page == 'improve_code':
 elif st.session_state.page == 'data_analysis':
     st.subheader("Data Analysis")
     st.file_uploader(label="Upload your file here!")
+    load_home_button(st.session_state)
 
     
 
