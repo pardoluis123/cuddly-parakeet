@@ -13,8 +13,8 @@ set_theme(
     button_font_size='16px',
     sidebar_font_size='16px',
     header_color='#4B3869',
-    button_background_color='#E6E6FA',
-    button_text_color='##E6E6FA',
+    button_background_color='#82e0aa',
+    button_text_color='#82e0aa',
     button_border_color='#E6E6FA',
     button_hover_background='#E6E6FA',
     button_hover_text='#ffffff'
