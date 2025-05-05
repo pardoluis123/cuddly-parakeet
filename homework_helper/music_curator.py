@@ -1,14 +1,9 @@
 import streamlit as st
 from utilities import load_home_button
 import pandas as pd
-from langchain_openai import OpenAIEmbeddings
-from langchain.vectorstores import FAISS
-from langchain.docstore.document import Document
 import numpy as np
-import os
 from utilities import preform_clust,run_PCA
-
-
+from spotipy_player import spotify_manager
 
 def run_music_picker(current_state):
     '''wrapper for running our function picker
@@ -44,7 +39,7 @@ def run_music_picker(current_state):
     '''
 
     current_state=current_state if current_state is not None else st.session_state
-    st.header("🎵 Music Recommender 🎵")
+    st.image('../resources/musicmaker.png')
     song = st.text_input("Can you give me a song your interested in?")
     artist = st.text_input("Many songs can have similar titles, so I also need the Artist")
 
@@ -61,16 +56,24 @@ def run_music_picker(current_state):
     generate_button = st.button(label="GENERATE MY PLAYLIST!")
     if generate_button:
         if song and artist:
-            #default df 
             if uploaded_df is None:
-                uploaded_df=uploaded_df=pd.read_csv('/Users/luisperez/Downloads/Cluster_assigned_music_df.csv')
-            
+                uploaded_df = pd.read_csv('../resources/Cluster_assigned_music_df.csv')
+
             song_suggestions = grab_song_cluster_label(uploaded_df, song, artist)
             if song_suggestions.empty:
                 st.write("No suggestions found.")
             else:
-                songs = song_suggestions['name'].to_list()
-                st.write(f"This is our list of suggestions!\n{songs}\n\nLOOK OUT FOR SPOTIFY API INTEGRATION COMING SOON")
+                st.subheader("🎵 Your Personalized Playlist 🎵")
+                for idx, row in song_suggestions.iterrows():
+                    track_name = row['name']
+                    track_artist = row['artists']
+                    track_url = f"https://open.spotify.com/track/{row['id']}"
+
+                    st.markdown(f"**{idx + 1}. [{track_name} by {track_artist}]({track_url})**")
+
+                    st.success("Spotify integration ready — enjoy your playlist!")
+
+                    spotify_manager(song_suggestions)
 
         if not song or not artist:
             st.write('Sorry, you need to provide both a song and artist.')
@@ -167,7 +170,9 @@ def create_OpenAI_embeddings(df):
     --------
     
     '''
-
+    from langchain_openai import OpenAIEmbeddings
+    from langchain.vectorstores import FAISS
+    from langchain.docstore.document import Document
     embedding_model = OpenAIEmbeddings()
     
 
@@ -225,6 +230,38 @@ def create_regular_embeddings(dataframe):
     return labels
 
 def grab_song_cluster_label(df, songtitle, artist):
+    '''returns suggestions based on cluster label
+
+    Parameters
+    ----------
+    df:pd.DataFrame,default='../resources/Cluster_assigned_music_df.csv'
+        The dataframe with cluster labels, or song suggestions that would be useful to use in order
+        to group the different genres into something good.
+    
+    songtitle:str,default='show me what you got'->default comes from kaggle as we know the song exists in the dataset
+        A string denoting the songtitle the user is providing as interest. It would be nice to have this be in proper caps
+        as it will slow the search time but its fine either way.
+
+    artist:str,default='Limp Bizkit'
+        A string denoting the artist the user is providing as interest. It would be nice to have this be in proper caps
+        as it will slow the search time but its fine either way.
+
+    
+    Returns
+    -------
+    suggestions:pd.DataFrame,default=None
+        A filtered dataframe with only similar suggestions
+
+    
+    Notes
+    -----
+
+    
+    Examples
+    --------
+
+
+    '''
     try:
         artist_songs = df[df['artists'].str.contains(artist, case=False, na=False)]
         if artist_songs.shape[0] == 0:
@@ -237,9 +274,7 @@ def grab_song_cluster_label(df, songtitle, artist):
             return pd.DataFrame()
 
         cluster_label = track['cluster_label'].iloc[0]  # make sure to extract a scalar
-        st.write(f"Looking for cluster_label: {cluster_label}")  # debug print
 
-        # FIXED line here:
         suggestions = df[df['cluster_label'] == cluster_label]
         return suggestions
 
@@ -250,38 +285,11 @@ def grab_song_cluster_label(df, songtitle, artist):
 
 if __name__=="__main__":
 
-    from time import time
     print("running the file by itself")
-    #pre_processed_data = pd.read_csv('Cluster_assigned_music_df.csv')
-    #lets say we dont have pre-processed data the general process would look like:
-    start=time()
+    uploaded_df=uploaded_df=pd.read_csv('../resources/Cluster_assigned_music_df.csv')
+    test_suggestions=grab_song_cluster_label(uploaded_df,'show me what you got',artist='limp bizkit')
+    print(test_suggestions)
     
-    test_dataframe = pd.read_csv('/Users/luisperez/Desktop/AI_Tools/assgn3/tracks_features.csv')
-
-    #haha I technically did the assignment but, only if the df is small :); runtime sucks with big data
-    if test_dataframe.shape[0]<100:
-        test_embeddings = create_OpenAI_embeddings(test_dataframe)
-    else:
-        labels=create_regular_embeddings(test_dataframe)
-        
-
-    test_dataframe['cluster_label']=labels
-    test_dataframe.to_csv('/Users/luisperez/Desktop/AI_Tools/assgn3/Cluster_assigned_music_df.csv')
-    print(test_dataframe.columns)
-
-    os._exit(0)
-
-
-
-       # Create Document objects (optionally include metadata like row index)
-    pdf_docs = [
-        Document(page_content=text, metadata={'row_index': idx})
-        for idx, text in enumerate(combined_texts)
-    ]
-
-
-    # Create FAISS vector store
-    vectorstore = FAISS.from_documents(pdf_docs, embedding=embedding_model)
 
 
 

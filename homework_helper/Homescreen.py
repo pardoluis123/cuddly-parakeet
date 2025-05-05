@@ -28,8 +28,8 @@ if 'page' not in st.session_state:
 
 # Intro screen
 if st.session_state.page is None:
-    st.title("Welcome to your personal homework station!")
     st.image(path_to_background) #including background 
+    st.title("Welcome to your personal homework station!")
     st.subheader("What would you like to do today?")
     
 
