@@ -16,7 +16,6 @@ def run_music_picker(current_state):
         in various different areas.
     
         
-
         
     Returns
     -------
@@ -52,7 +51,6 @@ def run_music_picker(current_state):
         st.write(f"All set! you can go put in your desired song and artist now :p")
 
         
-    load_home_button()
     generate_button = st.button(label="GENERATE MY PLAYLIST!")
     if generate_button:
         if song and artist:
@@ -74,7 +72,7 @@ def run_music_picker(current_state):
                     st.success("Spotify integration ready — enjoy your playlist!")
 
                     spotify_manager(song_suggestions)
-                    load_home_button()
+                    load_home_button(current_state)
 
         if not song or not artist:
             st.write('Sorry, you need to provide both a song and artist.')
