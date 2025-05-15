@@ -8,7 +8,7 @@ Since this was a class project we began small, and the two main tools leveraged 
 
 - The OpenAI embeddings module is also leveraged to create embeddings of song features for efficient clustering and song suggestions. While a smaller component in the preliminary exploration, the lag time for clustering our initial large dataset was a bit unreasonable. But if you were pulling only 200–500-ish songs from a user's history and ran the same process, it would be much more reasonable. In effect, batching would help—but further access to Spotify’s API is necessary.
 
-While this is a preliminary exploration for a class project, we do come away with a few major results:
+## While this is a preliminary exploration for a class project, we do come away with a few major results:
 
 - FAISS and vector storage actually provide an amazing way to personalize a model for your use case and have various applications that would involve using the code shown in this project and simply switching out prompts and tasks.
 
