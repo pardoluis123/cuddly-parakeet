@@ -29,6 +29,13 @@ These results lay the foundations for the key takeaways from this project:
 
 - Collaboration is key; aspects of other presentations made their way into our final product. Market research earlier would have been useful
 
+## Disclaimer
+
+Obviously, this is not meant to be a cheating app. The reality of the current world though, is that anyone debugging or exploring new programming concepts is likely to use chatgpt as a place to begin bouncing ideas or developing a framework, thus this is meant to be a tool for facilitating, and personalizing that process nothing more. Please use responsibly as you would use google, or chatgpt, your decisions are still your own.
+
+Thanks!
+-The Team
+
 # Installation
 
 In order to run our app you need various dependencies which can be found in the requirements.txt. The easiest way to set this up yourself is to just run our startup "bootstrap" files included for both Mac users with bash shells as well as windows users with powershells. 
@@ -83,5 +90,4 @@ We pre-processed the music dataset in order to to be able to provide suggestions
 
 -['']
 
-The last note on the music curator is 
 
