@@ -4,9 +4,9 @@ This project builds an AI-powered "Homework Station App" using LangChain, OpenAI
 
 Since this was a class project we began small, and the two main tools leveraged are:
 
-RAG pipelines with Facebook's FAISS for efficient vector search in order to create a personalized user experience that improves over time. In theory, the more you use your assistant for a specific kind of task, the better it gets at your personalized workflow. Over the course of a major project, you would begin to have an assistant with personalized insight and suggestions on where things may be going wrong or could be improved.
+- RAG pipelines with Facebook's FAISS for efficient vector search in order to create a personalized user experience that improves over time. In theory, the more you use your assistant for a specific kind of task, the better it gets at your personalized workflow. Over the course of a major project, you would begin to have an assistant with personalized insight and suggestions on where things may be going wrong or could be improved.
 
-The OpenAI embeddings module is also leveraged to create embeddings of song features for efficient clustering and song suggestions. While a smaller component in the preliminary exploration, the lag time for clustering our initial large dataset was a bit unreasonable. But if you were pulling only 200–500-ish songs from a user's history and ran the same process, it would be much more reasonable. In effect, batching would help—but further access to Spotify’s API is necessary.
+- The OpenAI embeddings module is also leveraged to create embeddings of song features for efficient clustering and song suggestions. While a smaller component in the preliminary exploration, the lag time for clustering our initial large dataset was a bit unreasonable. But if you were pulling only 200–500-ish songs from a user's history and ran the same process, it would be much more reasonable. In effect, batching would help—but further access to Spotify’s API is necessary.
 
 While this is a preliminary exploration for a class project, we do come away with a few major results:
 
