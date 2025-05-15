@@ -1,36 +1,36 @@
-# qac-387-assignment-3
-
-
 # Python Code Assistant 
-This project builds an AI powered "Homework Station App" using LangChain, OpenAI, and Streamlit. The idea is to have a workspace similar to the one provided by ['https://www.notion.com/'] with LLM tools that facilitate curation. 
 
-Since this was a class project we began small and the two main tools leveraged are 
+This project builds an AI-powered "Homework Station App" using LangChain, OpenAI, and Streamlit. The idea is to have a workspace similar to the one provided by [https://www.notion.com/] with LLM tools that facilitate curation.
 
--RAG pipelines with Facebooks FAII for efficient vector search in order to create a personalized user experience that improves over time. In theory the more you use your assistant for a specific kind of task the better and better it gets at your personalized workdflow. Over the course of a major project you would begin to have an assistant with personalized insight, and suggestions, on where things may be going wrong or could be improved.
+Since this was a class project we began small, and the two main tools leveraged are:
 
--The openAI embeddings module is also leveraged to create embeddings of song features for efficient clustering and song suggestions. While a smaller component in the preliminary exploration, the lag time for clustering our initial large dataset was a bit unreasonable, but if you were pulling only 200-500 ish songs from a users history and ran the same process it would be much more reasonable. In effect, batching would help but, further access to spotifys API is necessary.
+RAG pipelines with Facebook's FAISS for efficient vector search in order to create a personalized user experience that improves over time. In theory, the more you use your assistant for a specific kind of task, the better it gets at your personalized workflow. Over the course of a major project, you would begin to have an assistant with personalized insight and suggestions on where things may be going wrong or could be improved.
 
-While this is a preliminary exploration for a class project we do come away with a few major results:
+The OpenAI embeddings module is also leveraged to create embeddings of song features for efficient clustering and song suggestions. While a smaller component in the preliminary exploration, the lag time for clustering our initial large dataset was a bit unreasonable. But if you were pulling only 200–500-ish songs from a user's history and ran the same process, it would be much more reasonable. In effect, batching would help—but further access to Spotify’s API is necessary.
 
-1. FAISS and vector storage actually provide an amazing way to personalize a model for your use case and has various applications that would involve using the code shown in this project and simply switching out prompts and tasks. 
+While this is a preliminary exploration for a class project, we do come away with a few major results:
 
-2. Connecting this same pipeline to outside APIs such as Spotifys in order to implement thoose as outside databases in the "RAG" pipeline is actually a relatively easy implementation and pokes at the exciting breadth of possibilities for the future.
+FAISS and vector storage actually provide an amazing way to personalize a model for your use case and have various applications that would involve using the code shown in this project and simply switching out prompts and tasks.
 
-Theese results lay the foundations for the key takeaways from this project:
+Connecting this same pipeline to outside APIs, such as Spotify’s, in order to implement those as outside databases in the RAG pipeline is actually a relatively easy implementation and points to the exciting breadth of possibilities for the future.
+
+These results lay the foundations for the key takeaways from this project:
 
 ## Key takeaways?: 
 
-- Building an app is actually a very approachable, scalable, and fun time. Data is the future, LLM are easier to implement, curate, and use than ever, and we have definitely come away with a very valuable skill set.
+
+- Building an app is actually a very approachable, scalable, and fun time. Data is the future, LLMs are easier to implement, curate, and use than ever, and we have definitely come away with a very valuable skill set.
 
 ## Lessons learned?:
 
-- UI, CSS, and web apps are still hard to use
-- If this were a real product pitch, editing before presenting is ridiculous and sometimes you have to know when to put the thing down
-- Collaboration is key, aspects of other presentations made their way into our final product, market research earlier would have been useful
+- UI work, CSS, and web apps are still hard to use
 
+- If this were a real product pitch, editing before presenting is essential—and sometimes you have to know when to put the thing down
 
+- Collaboration is key; aspects of other presentations made their way into our final product. Market research earlier would have been useful
 
 # Installation
+
 In order to run our app you need various dependencies which can be found in the requirements.txt. The easiest way to set this up yourself is to just run our startup "bootstrap" files included for both Mac users with bash shells as well as windows users with powershells. 
  
 
