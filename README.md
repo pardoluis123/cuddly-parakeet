@@ -10,9 +10,9 @@ The OpenAI embeddings module is also leveraged to create embeddings of song feat
 
 While this is a preliminary exploration for a class project, we do come away with a few major results:
 
-FAISS and vector storage actually provide an amazing way to personalize a model for your use case and have various applications that would involve using the code shown in this project and simply switching out prompts and tasks.
+- FAISS and vector storage actually provide an amazing way to personalize a model for your use case and have various applications that would involve using the code shown in this project and simply switching out prompts and tasks.
 
-Connecting this same pipeline to outside APIs, such as Spotify’s, in order to implement those as outside databases in the RAG pipeline is actually a relatively easy implementation and points to the exciting breadth of possibilities for the future.
+- Connecting this same pipeline to outside APIs, such as Spotify’s, in order to implement those as outside databases in the RAG pipeline is actually a relatively easy implementation and points to the exciting breadth of possibilities for the future.
 
 These results lay the foundations for the key takeaways from this project:
 
