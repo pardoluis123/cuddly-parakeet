@@ -14,8 +14,6 @@ Since this was a class project we began small, and the two main tools leveraged 
 
 - Connecting this same pipeline to outside APIs, such as Spotify’s, in order to implement those as outside databases in the RAG pipeline is actually a relatively easy implementation and points to the exciting breadth of possibilities for the future.
 
-These results lay the foundations for the key takeaways from this project:
-
 ## Key takeaways?: 
 
 
@@ -31,7 +29,7 @@ These results lay the foundations for the key takeaways from this project:
 
 ## Disclaimer
 
-Obviously, this is not meant to be a cheating app. The reality of the current world though, is that anyone debugging or exploring new programming concepts is likely to use chatgpt as a place to begin bouncing ideas or developing a framework, thus this is meant to be a tool for facilitating, and personalizing that process nothing more. Please use responsibly as you would use google, or chatgpt, your decisions are still your own.
+Obviously, this is not meant to be a cheating app. The reality of the current world though, is that anyone debugging or exploring new programming concepts is likely to use chatgpt as a place to begin bouncing ideas or developing a framework, thus this is meant to be a tool for facilitating, and personalizing that process locally nothing more. Please use responsibly as you would use google, or chatgpt, your decisions are still your own.
 
 Thanks!
 -The Team
