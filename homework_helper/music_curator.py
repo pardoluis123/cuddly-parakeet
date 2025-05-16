@@ -44,7 +44,11 @@ def run_music_picker(current_state):
 
 
     uploaded_df = st.file_uploader(label="If you have spotify data with features (before spotify went and ruined it) drop it here!")
-    
+
+    st.write('If you have a spotify developer account and would like to use our API function add your secret id and client id here: \n Note: you need to add the redirect url http://127.0.0.1:8888/callback/ ')
+    Client_id=st.text_input('Client id')
+    Secret_id=st.text_input('Secret id')
+
     if uploaded_df is not None:
         labels=create_labels(uploaded_df)
         uploaded_df['cluster_label']=labels
@@ -52,6 +56,7 @@ def run_music_picker(current_state):
 
         
     generate_button = st.button(label="GENERATE MY PLAYLIST!")
+    load_home_button(current_state)
     if generate_button:
         if song and artist:
             if uploaded_df is None:
@@ -63,24 +68,27 @@ def run_music_picker(current_state):
             else:
                 st.subheader("🎵 Your Personalized Playlist 🎵")
                 for idx, row in song_suggestions.iterrows():
-                    track_name = row['name']
-                    track_artist = row['artists']
-                    track_url = f"https://open.spotify.com/track/{row['id']}"
+                    if Client_id is not None and Secret_id is not None:
+                        spotify_manager(song_suggestions,Client_id,Secret_id)
+                    else:
+                        spotify_manager(song_suggestions)
+                    if st.session_state.page is not None:
+                        track_name = row['name']
+                        track_artist = row['artists']
+                        track_url = f"https://open.spotify.com/track/{row['id']}"
 
-                    st.markdown(f"**{idx + 1}. [{track_name} by {track_artist}]({track_url})**")
+                        st.markdown(f"**{idx + 1}. [{track_name} by {track_artist}]({track_url})**")
+                        st.success("Song added to queue!")
+                    if st.session_state.page is None:
+                        st.session_state.page=None
 
-                    st.success("Spotify integration ready — enjoy your playlist!")
+                st.success("Enjoy your playlist!")
 
-                    spotify_manager(song_suggestions)
-                    load_home_button(current_state)
+                        
 
         if not song or not artist:
             st.write('Sorry, you need to provide both a song and artist.')
-    
 
-
-    #return home 
-    load_home_button(current_state)
     return 
 
 def create_labels(uploaded_df):

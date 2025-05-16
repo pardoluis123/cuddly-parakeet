@@ -43,6 +43,8 @@ def load_home_button(sessionstate):
     if home_button:
         st.session_state.page = None
         st.rerun()
+    
+
 
 
 def run_PCA(feature_matrix,n):
